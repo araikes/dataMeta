@@ -42,7 +42,7 @@
 #' 
 #' @export
 
-build_dict <- function(my.data, linker, option_description = NULL, prompt_varopts = TRUE) {
+build_dict <- function(my.data, linker, option_description = NULL, prompt_varopts = TRUE, keep_na = TRUE) {
   
   error1 <- FALSE
   error2 <- FALSE
@@ -57,7 +57,7 @@ build_dict <- function(my.data, linker, option_description = NULL, prompt_varopt
     
     var.options = 
       ifelse(linker$var_type[i] == 1 & linker$var_name[i] == names(my.data[i]), 
-             unique(my.data[i]), paste(range(my.data[, i], na.rm = FALSE), 
+             unique(my.data[i]), paste(range(my.data[, i], na.rm = keep_na), 
                                        sep = "", collapse = " to "))
     
     d <- data.frame(
