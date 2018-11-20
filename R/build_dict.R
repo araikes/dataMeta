@@ -16,6 +16,9 @@
 #' @param prompt_varopts Logical. Whether to add the option_description manually 
 #' as prompted by R. Default is set to TRUE. If FALSE, an option_description vector 
 #' must be provided.
+#' @param keep_na Logical. Whether to keep NA values when computing ranges.
+#' Default is set to TRUE. If FALSE, continuous value ranges are computed
+#' excluding NAs.
 #' @return A data frame that will serve as a data dictionary for an original dataset. 
 #' The user will have the option to add this dictionary as an attribute to the original 
 #' dataset with the other package functions.
@@ -37,7 +40,7 @@
 #' # Data dictionary
 #' # For this data set, no further option description is needed.
 #' dictionary <- build_dict(my.data = my.data, linker = linker, option_description = NULL, 
-#' prompt_varopts = FALSE)
+#' prompt_varopts = FALSE, keep_na = TRUE)
 #' dictionary
 #' 
 #' @export
